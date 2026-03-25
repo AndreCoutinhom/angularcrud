@@ -1,8 +1,21 @@
 <app-header></app-header>
 
-<h1>{{titulo}}</h1>
+<h1>{{ titulo }}</h1>
 
-<h2>{{nome}}</h2>
+<h2>{{ boasVindas }}</h2>
+
+<label for="nome">Nome:</label>
+<input class="input-simples" id="nome" name="nome" type="text"
+(keyup)="onKeyUp($event)"
+/>
+
+<button class="input-submeter" [disabled] = "botaoDesabilitado" (click) = "onBotaoClicado()">
+    {{ textoBotao }}
+</button>
+
+@if(mensagem) {
+    <div class="mensagem">{{ mensagem }}</div>
+}
 
 <router-outlet/>
 

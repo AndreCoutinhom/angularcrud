@@ -12,6 +12,19 @@ import { FooterComponent } from './shared/footer/footer.component';
 })
 export class AppComponent {
   title = 'angularcrud';
-  titulo = 'Hello'
-  nome = "André";
+  titulo = 'Olá!'
+  boasVindas = "Boas vindas ao Angular";
+  textoBotao: string = "Clique aqui!"
+  botaoDesabilitado: boolean = false;
+  mensagem: string = '';
+
+  onBotaoClicado() {
+    this.mensagem = "Você clicou no botão!";
+  }
+
+  onKeyUp(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.mensagem = `Olá ${input.value} !`;
+  }
+   
 }
