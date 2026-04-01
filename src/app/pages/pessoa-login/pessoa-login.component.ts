@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,11 +15,14 @@ export class PessoaLoginComponent {
   email: string = '';
   senha: string = '';
 
+  constructor(private router: Router) {}
+
   login() {
     if (this.email === "admin" && this.senha === "123") {
-      console.log("Boas vindas");
+      alert("Boas vindas");
+      this.router.navigate(['/pessoas']);
     } else {
-      console.log("Usuário ou senha incorretos");
+      alert("Usuário ou senha incorretos");
     }
   }
 

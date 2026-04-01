@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Pessoa } from '../../types/types';
+import { PessoaService } from '../../core/services/pessoa.service';
+import { Route, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-pessoa-listagem',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './pessoa-listagem.component.html',
   styleUrl: './pessoa-listagem.component.css'
 })
-export class PessoaListagemComponent {
+export class PessoaListagemComponent implements OnInit {
+  listaPessoas: Pessoa[] = [];
+  constructor (private service: PessoaService) {}
+  ngOnInit(): void {
+    this.listaPessoas = this.service.listar();
+  }
 
 }

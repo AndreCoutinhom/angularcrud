@@ -2,8 +2,14 @@ import { Routes } from '@angular/router';
 import { PessoaListagemComponent } from './pages/pessoa-listagem/pessoa-listagem.component';
 import { PessoaFormComponent } from './pages/pessoa-form/pessoa-form.component';
 import { PessoaLoginComponent } from './pages/pessoa-login/pessoa-login.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
+    {
+        path: '',
+        component: HomeComponent,
+        title: 'Página Inicial'
+    },
     {
         path: 'pessoas',
         component: PessoaListagemComponent,
