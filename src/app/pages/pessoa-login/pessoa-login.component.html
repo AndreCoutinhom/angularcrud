@@ -1,0 +1,13 @@
+<div class="content-container">
+    <h1>{{ titulo }}</h1>
+    <form (ngSubmit)="login()">
+        <label for="input-email">Email</label><br>
+        <input class="input-simples" id="input-email" name="input-email" placeholder="Digite o e-mail" [(ngModel)]="email" type="email" />
+
+        <label for="input-senha">Senha</label><br>
+        <input class="input-simples" id="input-senha" name="input-senha" placeholder="Digite a senha" [(ngModel)]="senha" type="password" />
+
+        <button class="input-submeter" type="submit">Cadastrar</button>
+
+    </form>
+</div>
