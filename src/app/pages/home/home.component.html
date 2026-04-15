@@ -1,1 +1,15 @@
-<h1>Boas Vindas</h1>
+<div class="content-container">
+    <h1>{{ titulo }}</h1>
+    <form>
+        <label for="input-nome" class="input-simples">Estudantes do meu coração 💝</label><br>
+        <button class="input-submeter" (click)="listarPessoas()">
+            Listar Pessoas
+        </button>
+    </form>
+    <div class="card-wrapper">
+        <app-card-item [imageUrl]="'assets/images/alexia.webp'" [imageAlt]="'alexa'"></app-card-item>
+        <app-card-item [imageUrl]="'assets/images/headphone.webp'" [imageAlt]="'headphone'"></app-card-item>
+        <app-card-item [imageUrl]="'assets/images/keyboard.webp'" [imageAlt]="'keyboard'"></app-card-item>
+        <app-card-item [imageUrl]="'assets/images/notebook.webp'" [imageAlt]="'notebook'"></app-card-item>
+    </div>
+</div>

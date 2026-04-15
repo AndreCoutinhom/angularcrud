@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Pessoa } from '../../types/types';
+import { Pessoa } from '../../core/types/types';
 import { PessoaService } from '../../core/services/pessoa.service';
-import { Route, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-pessoa-listagem',
@@ -12,9 +12,23 @@ import { Route, RouterLink } from '@angular/router';
 })
 export class PessoaListagemComponent implements OnInit {
   listaPessoas: Pessoa[] = [];
-  constructor (private service: PessoaService) {}
+  constructor(private service: PessoaService) { }
   ngOnInit(): void {
-    this.listaPessoas = this.service.listar();
+    this.service.listar().subscribe((pessoas) => {
+      this.listaPessoas = pessoas;
+    });
   }
-
+  excluir(id:number){    
+      if(id){        
+        const resp = confirm("Confirma a exclusão do ID: " + id)
+        if(resp==true){
+      this.service.excluir(id).subscribe(() => {
+          window.location.reload()
+      })  
+    }
+    else{
+      alert("Registro não excluído!");
+    }
+  }
+}
 }

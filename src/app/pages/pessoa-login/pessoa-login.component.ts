@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-pessoa-login',
   standalone: true,
@@ -11,19 +10,20 @@ import { Router } from '@angular/router';
   styleUrl: './pessoa-login.component.css'
 })
 export class PessoaLoginComponent {
-  titulo = 'Login';
-  email: string = '';
-  senha: string = '';
+  constructor (private router: Router){}
+  onBotaoClicado() {
+    if(this.login=="andre.cm@gmail.com" 
+      && this.senha=="quebra"){
+      alert("Login efetuado com sucesso!!!");
+      this.router.navigate(['pessoas']);
 
-  constructor(private router: Router) {}
-
-  login() {
-    if (this.email === "admin" && this.senha === "123") {
-      alert("Boas vindas");
-      this.router.navigate(['/pessoas']);
-    } else {
-      alert("Usuário ou senha incorretos");
+    }
+    else{
+      alert("Usuário ou senha inválidos!!!");
     }
   }
-
+  login: any;
+  senha: any;
+  botaoDesabilitado: any;
 }
+

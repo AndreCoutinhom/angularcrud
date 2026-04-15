@@ -7,28 +7,37 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, FormsModule],
+  imports: [RouterOutlet, HeaderComponent, 
+    FooterComponent, FormsModule],
   templateUrl: './app.component.html',
+  /*
+  template: 
+  `
+    Nome: <input type="text" (keyup)="exibirConsole($event)"/>
+  `,*/
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angularcrud';
-  titulo = 'Olá!'
-  boasVindas = "Boas vindas ao Angular";
-  textoBotao: string = "Clique aqui!"
-  botaoDesabilitado: boolean = false;
-  mensagem: string = '';
-  nome: string = '';
-  sobrenome: string = '';
-  cidade: string = 'São Paulo';
+  /*
+  exibirConsole(event: KeyboardEvent): void {
+    console.log(`Você pressionou: ${event.key}`);
+  }*/
+  titulo = 'Bem-vindo ao mundo Angular';
+  nome = "Marcos ";
+  sobrenome = "Monteiro";
+  cidade = "São Paulo";
+ textoBotao: string = 'Clique aqui!';
+ botaoDesabilitado: boolean = false;
 
-  onBotaoClicado() {
-    this.mensagem = "Você clicou no botão!";
-  }
-
-  onKeyUp(event: Event) {
-    const input = event.target as HTMLInputElement;
-    this.mensagem = `Olá ${input.value} !`;
-  }
-   
+ mensagem: string = "";
+ onBotaoClicado(){
+  this.mensagem = "Você clicou no Botão";
+ }
+ atualizarMensagem(valor: string): void {
+  this.mensagem = valor;
+}
+onKeyUp(event: Event) {
+  const input = event.target as HTMLInputElement;
+  this.mensagem = `Olá ${input.value} !`;
+}
 }
