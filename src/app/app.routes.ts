@@ -3,30 +3,38 @@ import { PessoaListagemComponent } from './pages/pessoa-listagem/pessoa-listagem
 import { PessoaFormComponent } from './pages/pessoa-form/pessoa-form.component';
 import { PessoaLoginComponent } from './pages/pessoa-login/pessoa-login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProdutoFormComponent } from './pages/produto-form/produto-form.component';
+
+
 export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     title: 'Home Page',
-   },
+  },
   {
-  path: 'pessoas',
-  component: PessoaListagemComponent,
-  title: 'Pessoas',
- },
- {
-  path: 'pessoas/incluir',
-  component: PessoaFormComponent,
-  title: 'Pessoas - Incluir',
- },
- {
-  path: 'pessoas/alterar/:id',
-  component: PessoaFormComponent,
-  title: 'Pessoas - Alterar',
- },
- {
-  path: 'pessoas/login',
-  component: PessoaLoginComponent,
-  title: 'Login',
- },
+    path: 'pessoas',
+    component: PessoaListagemComponent,
+    title: 'Pessoas',
+  },
+  {
+    path: 'pessoas/incluir',
+    component: PessoaFormComponent,
+    title: 'Pessoas - Incluir',
+  },
+  {
+    path: 'pessoas/alterar/:id',
+    component: PessoaFormComponent,
+    title: 'Pessoas - Alterar',
+  },
+  {
+    path: 'pessoas/login',
+    component: PessoaLoginComponent,
+    title: 'Login',
+  },
+  {
+    path: 'produto-form',
+    component: ProdutoFormComponent,
+    title: 'Produto Form',
+  },
 ];
